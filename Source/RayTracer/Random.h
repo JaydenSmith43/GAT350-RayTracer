@@ -14,12 +14,9 @@ inline float random01()
 
 inline float random(float min, float max)
 {
-	if (min > max)
-	{
-		std::swap(min, max);
-	}
-
-	return (random01() * (max - min + 1) + min);
+	if (min > max) std::swap(min, max);
+	float range = max - min;
+	return (random01() * (range + min));
 }
 
 inline glm::vec3 random(const glm::vec3& min, const glm::vec3& max)
